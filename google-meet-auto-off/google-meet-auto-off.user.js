@@ -35,7 +35,7 @@
                 :is(button, [role="button"])[data-is-muted="true"][aria-label*="マイク"],
                 :is(button, [role="button"])[data-is-muted="true"][aria-label*="microphone"]
             `,
-            
+
             // カメラを「オフにする」ボタン (ターゲット)
             camTurnOff: `
                 :is(button, [role="button"])[aria-label*="カメラをオフ"],
@@ -92,7 +92,7 @@
     statusTextDiv.id = 'gm-status-text';
     statusTextDiv.textContent = '起動中...';
     statusPanel.appendChild(statusTextDiv);
-    
+
     // ボディに追加
     if (document.body) {
         document.body.appendChild(statusPanel);
@@ -103,7 +103,7 @@
     function updateStatus(msg, type = 'info') {
         const el = document.getElementById('gm-status-text');
         if (el) {
-            el.textContent = msg; 
+            el.textContent = msg;
             if (type === 'success') el.style.color = '#4caf50'; // 緑
             if (type === 'error') el.style.color = '#f44336';   // 赤
             if (type === 'info') el.style.color = '#ffffff';    // 白
@@ -133,11 +133,11 @@
         }
 
         // 1. 要素の検索
-        const micBtnOffTarget = document.querySelector(CONFIG.selectors.micTurnOff); 
-        const micBtnOnGoal    = document.querySelector(CONFIG.selectors.micTurnOn);  
+        const micBtnOffTarget = document.querySelector(CONFIG.selectors.micTurnOff);
+        const micBtnOnGoal    = document.querySelector(CONFIG.selectors.micTurnOn);
 
-        const camBtnOffTarget = document.querySelector(CONFIG.selectors.camTurnOff); 
-        const camBtnOnGoal    = document.querySelector(CONFIG.selectors.camTurnOn);  
+        const camBtnOffTarget = document.querySelector(CONFIG.selectors.camTurnOff);
+        const camBtnOnGoal    = document.querySelector(CONFIG.selectors.camTurnOn);
 
         // まだUIがロードされていない場合
         if (!micBtnOffTarget && !micBtnOnGoal && !camBtnOffTarget && !camBtnOnGoal) {
