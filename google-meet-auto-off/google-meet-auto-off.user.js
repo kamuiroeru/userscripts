@@ -6,8 +6,8 @@
 // @author       KamuiRoeru
 // @match        https://meet.google.com/*
 // @grant        none
-// @downloadURL  https://raw.githubusercontent.com/kamuiroeru/userscripts/main/google-meet-auto-off/google-meet-auto-off.user.js
-// @updateURL    https://raw.githubusercontent.com/kamuiroeru/userscripts/main/google-meet-auto-off/google-meet-auto-off.user.js
+// @downloadURL  	https://github.com/kamuiroeru/userscripts/raw/refs/heads/google-meet-mic-cam-off/google-meet-auto-off/google-meet-auto-off.user.js
+// @updateURL    	https://github.com/kamuiroeru/userscripts/raw/refs/heads/google-meet-mic-cam-off/google-meet-auto-off/google-meet-auto-off.user.js
 // ==/UserScript==
 
 (function() {
