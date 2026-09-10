@@ -84,7 +84,7 @@
     const titleDiv = document.createElement('div');
     titleDiv.style.color = '#0f0';
     titleDiv.style.fontWeight = 'bold';
-    titleDiv.textContent = 'Meet Auto Mute v1.7';
+    titleDiv.textContent = 'Meet Auto Mute v0.2.0';
     statusPanel.appendChild(titleDiv);
 
     // ステータステキスト部分
