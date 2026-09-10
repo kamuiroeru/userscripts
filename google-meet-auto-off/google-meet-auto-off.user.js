@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Google Meet Auto Mic & Camera Off
 // @namespace    https://github.com/kamuiroeru/userscripts
-// @version      0.1.0
+// @version      0.2.0
 // @description  Google Meet を開いたときに、マイクとカメラを自動でオフにします。
 // @author       KamuiRoeru
 // @match        https://meet.google.com/*
@@ -19,34 +19,36 @@
         scanInterval: 800,       // チェック間隔 (ms)
         maxTime: 30000,          // 最大監視時間 (30秒)
         selectors: {
+            // Meet は更新により操作要素を div から button へ変更した。
+            // タグ名を固定せず、アクセシビリティ属性で対象を特定する。
             // マイクを「オフにする」ボタン (ターゲット)
             micTurnOff: `
-                div[role="button"][aria-label*="マイクをオフにする"],
-                div[role="button"][aria-label*="Turn off microphone"],
-                div[role="button"][data-is-muted="false"][aria-label*="マイク"],
-                div[role="button"][data-is-muted="false"][aria-label*="mic"]
+                :is(button, [role="button"])[aria-label*="マイクをオフ"],
+                :is(button, [role="button"])[aria-label*="Turn off microphone"],
+                :is(button, [role="button"])[data-is-muted="false"][aria-label*="マイク"],
+                :is(button, [role="button"])[data-is-muted="false"][aria-label*="microphone"]
             `,
             // マイクを「オンにする」ボタン (ゴール)
             micTurnOn:  `
-                div[role="button"][aria-label*="マイクをオンにする"],
-                div[role="button"][aria-label*="Turn on microphone"],
-                div[role="button"][data-is-muted="true"][aria-label*="マイク"],
-                div[role="button"][data-is-muted="true"][aria-label*="mic"]
+                :is(button, [role="button"])[aria-label*="マイクをオン"],
+                :is(button, [role="button"])[aria-label*="Turn on microphone"],
+                :is(button, [role="button"])[data-is-muted="true"][aria-label*="マイク"],
+                :is(button, [role="button"])[data-is-muted="true"][aria-label*="microphone"]
             `,
             
             // カメラを「オフにする」ボタン (ターゲット)
             camTurnOff: `
-                div[role="button"][aria-label*="カメラをオフにする"],
-                div[role="button"][aria-label*="Turn off camera"],
-                div[role="button"][data-is-muted="false"][aria-label*="カメラ"],
-                div[role="button"][data-is-muted="false"][aria-label*="camera"]
+                :is(button, [role="button"])[aria-label*="カメラをオフ"],
+                :is(button, [role="button"])[aria-label*="Turn off camera"],
+                :is(button, [role="button"])[data-is-muted="false"][aria-label*="カメラ"],
+                :is(button, [role="button"])[data-is-muted="false"][aria-label*="camera"]
             `,
             // カメラを「オンにする」ボタン (ゴール)
             camTurnOn:  `
-                div[role="button"][aria-label*="カメラをオンにする"],
-                div[role="button"][aria-label*="Turn on camera"],
-                div[role="button"][data-is-muted="true"][aria-label*="カメラ"],
-                div[role="button"][data-is-muted="true"][aria-label*="camera"]
+                :is(button, [role="button"])[aria-label*="カメラをオン"],
+                :is(button, [role="button"])[aria-label*="Turn on camera"],
+                :is(button, [role="button"])[data-is-muted="true"][aria-label*="カメラ"],
+                :is(button, [role="button"])[data-is-muted="true"][aria-label*="camera"]
             `,
 
             // 会議中判定用: 「通話から退出」ボタン
@@ -194,4 +196,3 @@
     }, CONFIG.scanInterval);
 
 })();
-
